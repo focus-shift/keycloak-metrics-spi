@@ -12,6 +12,11 @@ Two distinct providers are defined:
 The endpoint is available under `<base url>/realms/<realm>/metrics` (Quarkus). 
 It will return data for all realms, no matter which realm you use in the URL.
 
+## Keycloak Version Compatibility
+
+The version of this plugin is using the same version baseline like Keycloak itself.
+E.g. the plugin version 25.0.1 is compatible with Keycloak 25.0.1.
+
 ## License 
 
  See [LICENSE file](./LICENSE)
