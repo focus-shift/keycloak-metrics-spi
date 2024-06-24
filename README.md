@@ -9,7 +9,7 @@ Two distinct providers are defined:
 * MetricsEventListener to record the internal Keycloak events
 * MetricsEndpoint to expose the data through a custom endpoint
 
-The endpoint is available under `<base url>/realms/<realm>/metrics` (Quarkus) or `<base url>/auth/realms/<realm>/metrics` (Wildfly). 
+The endpoint is available under `<base url>/realms/<realm>/metrics` (Quarkus). 
 It will return data for all realms, no matter which realm you use in the URL.
 
 ## License 
@@ -19,28 +19,10 @@ It will return data for all realms, no matter which realm you use in the URL.
 ## Running the tests
 
 ```sh
-$ ./gradlew test
+$ ./mvnw clean verify
 ```
 
 ## Build
-
-There are two ways to build the project using:
- * [Gradle](https://gradle.org/)
- * [Maven](https://maven.apache.org/)
-
-You can choose between the tools the most convenient for you. Read further how to use each of them.
-
-### Gradle
-
-The project is packaged as a jar file and bundles the prometheus client libraries.
-
-```sh
-$ ./gradlew jar
-```
-
-builds the jar and writes it to _build/libs_.
-
-### Maven
 
 To build the jar file using maven run the following command (will bundle the prometheus client libraries as well):
 
@@ -50,39 +32,8 @@ mvn package
 
 It will build the project and write jar to the _./target_.
 
-### Configurable versions for some packages
-
-You can build the project using a different version of Keycloak or Prometheus, running the command:
-
-#### For Gradle
-
-```sh
-$ ./gradlew -PkeycloakVersion="15.0.2.Final" -PprometheusVersion="0.12.0" jar
-```
-
-or by changing the `gradle.properties` file in the root of the project.
-
-#### For Maven
-
-```sh
-mvn clean package -Dkeycloak.version=15.0.0 -Dprometheus.version=0.9.0
-```
 
 ## Install and setup
-
-### On Keycloak Widfly Distribution
-> This section assumes `/opt/jboss` as the Keycloak home directory, which is used on the _jboss/keycloak_ reference container on Docker Hub.
-
-- Drop the [jar](https://github.com/aerogear/keycloak-metrics-spi/releases/latest) into the _/opt/jboss/keycloak/standalone/deployments/_ subdirectory of your Keycloak installation.
-
-- Touch a dodeploy file into the _/opt/jboss/keycloak/standalone/deployments/_ subdirectory of your Keycloak installation.
-
-```bash
-# If your jar file is `keycloak-metrics-spi-2.0.2.jar`
-cd /opt/jboss/keycloak/standalone/deployments/
-touch keycloak-metrics-spi-2.0.2.jar.dodeploy
-```
-- Restart the keycloak service.
 
 ### On Keycloak Quarkus Distribution
 
