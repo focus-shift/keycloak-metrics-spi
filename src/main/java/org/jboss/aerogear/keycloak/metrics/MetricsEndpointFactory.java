@@ -18,7 +18,6 @@ public class MetricsEndpointFactory implements RealmResourceProviderFactory {
         // nothing to do
     }
 
-
     @Override
     public void postInit(KeycloakSessionFactory factory) {
         // nothing to do
