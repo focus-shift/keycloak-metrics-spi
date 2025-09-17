@@ -7,7 +7,7 @@
     <artifactId>keycloak-metrics-spi</artifactId>
     <groupId>org.jboss.aerogear</groupId>
     <packaging>jar</packaging>
-    <version>27.0.0-SNAPSHOT</version>
+    <version>26.3.4</version>
 
     <properties>
         <java.version>21</java.version>
